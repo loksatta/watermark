@@ -1,0 +1,29 @@
+
+<!doctype html>  
+<html lang="en-us" ng-app="watermark">
+<head>
+<title>Lok Satta - Profile Picture</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<script src="watermark.js"></script>
+<link rel="stylesheet" href="angular-slider.min.css">
+<script src="angular-slider.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body ng-controller="WaterMark" ng-init="init()">
+    <div style="margin:0px auto;text-align:center;">
+        <h1>Create a profile picture with Lok Satta Water Mark</h1>
+        <div>
+            <img src="img.jpg" class="watermark" /> 
+        </div>
+    </div>
+
+        <div>
+            <label for="position">Position of Image</label><input ng-model="position" type="text" name="position" ng-change="waterApply()">
+        </div>
+        <div>
+            <label>Opacity : {{opacity}}</label>
+            <slider floor="10" ceiling="100" style="width:320px;"step="10" precision="5" ng-model="opacity" translate="currencyFormatting"></slider>
+            <button ng-click="waterApply()">Apply</button>
+        </div>
+</body>
+</html>
