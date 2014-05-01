@@ -4,6 +4,7 @@ app.controller('WaterMark', function($scope) {
     $scope.position = "top right";
     $scope.opacity = 99;
     $scope.img = "img.jpg";
+    $scope.name = "profilePicture"
     $scope.init = function(){
         wmark.init({
             "position": $scope.position, 
@@ -11,6 +12,14 @@ app.controller('WaterMark', function($scope) {
             "className": "watermark",
             "path": "/logo-new.png"
         });
+    }
+    $scope.download = function(){
+      var img = document.images[0];
+      var url = img.src.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+      var link = document.createElement("a");
+      link.download = $scope.name+".jpg";
+      link.href = url;
+      link.click();
     }
     $scope.currencyFormatting = function(value) { return value.toString() + " $" }
 

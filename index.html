@@ -5,25 +5,35 @@
 <title>Lok Satta - Profile Picture</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
 <script src="watermark.js"></script>
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="angular-slider.min.css">
 <script src="angular-slider.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </head>
 <body ng-controller="WaterMark" ng-init="init()">
-    <div style="margin:0px auto;text-align:center;">
-        <h1>Create a profile picture with Lok Satta Water Mark</h1>
-        <div>
-            <img src="img.jpg" class="watermark" /> 
+    <div class="container-fluid">
+        <div class="col-md-4">
+            <h2>Settings</h2>
+            <div>
+                <label for="position">Position of Image</label><input ng-model="position" type="text" name="position" ng-change="waterApply()">
+            </div>
+            <div>
+                <label for="position">Name of Image</label><input ng-model="name" type="text" name="position" >
+            </div>
+            <div>
+                    
+                <label>Opacity : {{opacity}}</label>
+                <slider floor="10" ceiling="100" style="width:320px;"step="10" precision="5" ng-model="opacity" translate="currencyFormatting"></slider>
+            </div>
+            <button ng-click="waterApply()" class="btn btn-default">Apply Changes</button>
+            <button ng-click="download()" class="btn btn-primary">Download Image</button>
+        </div>
+        <div class="col-md-8">
+            <h1>Lok Satta Water Mark - Profile Picture</h1>
+            <div>
+                <img src="img.jpg" style="width:100%;" class="watermark" /> 
+            </div>  
         </div>
     </div>
-
-        <div>
-            <label for="position">Position of Image</label><input ng-model="position" type="text" name="position" ng-change="waterApply()">
-        </div>
-        <div>
-            <label>Opacity : {{opacity}}</label>
-            <slider floor="10" ceiling="100" style="width:320px;"step="10" precision="5" ng-model="opacity" translate="currencyFormatting"></slider>
-            <button ng-click="waterApply()">Apply</button>
-        </div>
 </body>
 </html>
